@@ -1,5 +1,9 @@
 const hexInput = document.querySelector("#hexInput");
 const inputColor = document.querySelector("#inputColor");
+
+const slider = document.querySelector("#slider");
+const sliderText = document.querySelector("#sliderText");
+
 hexInput.addEventListener("keyup", () => {
   const hex = hexInput.value.replace(/^#/, "");
   if (isValidHex(hex)) {
@@ -55,4 +59,9 @@ const convertRGBToHex = (r, g, b) => {
   return `#${rHex}${gHex}${bHex}`;
 };
 
-console.log(convertRGBToHex(128, 128, 0));
+//get a reference to the slider and sliderText DOM elements
+//create an input event listener
+//display the value of the slider
+slider.addEventListener("input", function () {
+  sliderText.innerHTML = slider.value + "%";
+});
