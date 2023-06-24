@@ -36,4 +36,23 @@ const convertHexToRGB = (hex) => {
   return { r, g, b };
 };
 
-console.log(convertHexToRGB("123"));
+//create the function converRGBToHex
+//take in 3 parameters - r,g, and b
+//for each (r,g,b) - create a hex pair that is two characters long
+//return hex value starting with a hashtag
+//example - r.toString(16)
+
+const convertRGBToHex = (r, g, b) => {
+  const toHex = (val) => {
+    const hex = val.toString(16);
+    return hex.length === 1 ? "0" + hex : hex;
+  };
+
+  const rHex = toHex(r);
+  const gHex = toHex(g);
+  const bHex = toHex(b);
+
+  return `#${rHex}${gHex}${bHex}`;
+};
+
+console.log(convertRGBToHex(128, 128, 0));
