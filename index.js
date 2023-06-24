@@ -63,5 +63,22 @@ const convertRGBToHex = (r, g, b) => {
 //create an input event listener
 //display the value of the slider
 slider.addEventListener("input", function () {
-  sliderText.innerHTML = slider.value + "%";
+  sliderText.textContent = `${slider.value}%`;
 });
+
+//Create the alterColor function which accepts hex value and percentage
+//convert the hex value to rgb
+//increase each r,g,b value by appropriate amount (percentage of 255)
+//use the new r,g,b values to convert to a hex value
+//return the hex value
+
+const alterColor = (hex, percentage) => {
+  const { r, g, b } = convertHexToRGB(hex);
+
+  const amount = Math.floor((percentage / 100) * 255);
+
+  const newR = r + amount;
+  const newG = g + amount;
+  const newB = b + amount;
+  return convertRGBToHex(newR, newG, newB);
+};
