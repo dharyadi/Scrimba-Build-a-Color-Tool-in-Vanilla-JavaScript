@@ -77,8 +77,12 @@ const alterColor = (hex, percentage) => {
 
   const amount = Math.floor((percentage / 100) * 255);
 
-  const newR = r + amount;
-  const newG = g + amount;
-  const newB = b + amount;
+  const newR = increaseWithin0To255(r, amount);
+  const newG = increaseWithin0To255(g, amount);
+  const newB = increaseWithin0To255(b, amount);
   return convertRGBToHex(newR, newG, newB);
+};
+
+const increaseWithin0To255 = (hex, amount) => {
+  return Math.min(255, Math.max(hex + amount, 0));
 };
